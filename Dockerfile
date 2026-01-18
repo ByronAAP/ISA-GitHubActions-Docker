@@ -1,4 +1,4 @@
-FROM alpine:3.8 (last pushed 5 years ago) 
+FROM alpine:3.8  
 RUN mkdir /var/flaskapp
 WORKDIR /var/flaskapp
 COPY . .
