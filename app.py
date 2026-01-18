@@ -5,5 +5,5 @@ app = Flask(_name_)
 def hola():
     return-"<h1>¡Hola Byron Angulo-práctica docker!</h1>"
 
-if _name_ == '_main_':
+if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

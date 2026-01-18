@@ -1,10 +1,19 @@
-FROM alpine:3.8  
-RUN mkdir /var/flaskapp
+# Usar imagen ligera con Python ya incluido
+FROM python:3.11-alpine
+
+# Crear directorio de trabajo
 WORKDIR /var/flaskapp
+
+# Copiar solo requirements y luego instalar dependencias
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiar el resto del código
 COPY . .
-RUN  apk update
-RUN  apk add python3
-RUN  pip3 install -r requirements.txt
-EXPOSE  5000
-CMD  ["python3", "app.py"]
+
+# Exponer el puerto que usará Flask
+EXPOSE 5000
+
+# Ejecutar la app asegurando que escuche en todas las interfaces
+CMD ["python3", "app.py"]
 
