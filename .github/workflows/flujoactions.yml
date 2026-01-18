@@ -23,14 +23,14 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD}}
     
     - name: Build and push
-      uses: docker/build-push-action@v0.1.8
+      uses: docker/build-push-action@v4
       with:
         context: .
         push: true
         tags: byronangulo/isa-oct-2025-cicd-docker:flaskapp
 
     - name: Deployment
-      uses: appleboy/ssh-action@v1
+      uses: appleboy/ssh-action@v0.1.8
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
