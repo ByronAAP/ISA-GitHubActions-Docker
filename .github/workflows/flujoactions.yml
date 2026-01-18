@@ -38,8 +38,8 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script:
           docker image pull byronangulo/isa-oct-2025-cicd-docker:flaskapp
-          docker container stop flask
-          docker container rm flask
-          docker container run -d --name flask -p80:5000 byronangulo/isa-oct-2025-cicd-docker:flaskapp
+          docker container stop flask || true
+          docker container rm flask || true
+          docker container run -d --name flask -p 80:5000 byronangulo/isa-oct-2025-cicd-docker:flaskapp
       
      
